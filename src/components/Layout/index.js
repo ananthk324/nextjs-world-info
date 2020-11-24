@@ -16,9 +16,9 @@ const Layout = ({ children, title = "World Info" }) => {
   useEffect(() => {
     document.documentElement.setAttribute(
       "data-theme",
-      localStorage.getItem("theme")
+      localStorage.getItem("theme") ?? "light"
     );
-    setTheme(localStorage.getItem("theme"));
+    setTheme(localStorage.getItem("theme") ?? "light");
   }, []);
 
   const themeSwitch = (e) => {
