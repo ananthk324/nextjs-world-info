@@ -1,8 +1,14 @@
 import Head from "next/head";
+import Router from "next/router";
 import styles from "./Layout.module.css";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Brightness6Rounded } from "@material-ui/icons";
+import NProgress from "nprogress";
+
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 const Layout = ({ children, title = "World Info" }) => {
   const [theme, setTheme] = useState("light");
