@@ -25,7 +25,9 @@
   --background-color-dark: #3c393f;
   --background-color-light: #120f13;
 
-  --nprogress-color: #21b6b7;
+  --nprogress-color: #29d;
+
+  --box-shadow: 0px 2px 8px rgba(192, 189, 189, 0.05);
 }
 
 html,
