@@ -1,3 +1,8 @@
+.table {
+  max-height: 65vh;
+  overflow-y: scroll;
+}
+
 .heading {
   display: flex;
   margin-bottom: 20px;
@@ -20,7 +25,8 @@
   text-align: center;
 }
 
-.row {
+.row,
+.row_not_found {
   display: flex;
   padding: 20px;
 
@@ -33,6 +39,11 @@
 
   text-align: left;
   transition: all 200ms ease-in-out;
+}
+
+.row_not_found {
+  opacity: 0.5;
+  justify-content: center;
 }
 
 .row:hover {
