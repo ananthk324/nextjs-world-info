@@ -1,0 +1,23 @@
+.container {
+  padding: 1.5em;
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.main {
+}
+
+.footer {
+  margin-top: 2em;
+  text-align: center;
+  font-size: 0.75em;
+}

@@ -1,17 +1,24 @@
-import Head from "next/head";
+import Axios from "axios";
+import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
+import SearchInput from "../components/SearchInput";
+import CountryTable from "../components/CountryTable";
 
-export default function Home() {
+export default function Home({ countries }) {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>Main</main>
-
-      <footer className={styles.footer}>Footer</footer>
-    </div>
+    <Layout>
+      <div className={styles.count}>Loaded {countries.length} countries</div>
+      <SearchInput placeholder="Search by country" />
+      <CountryTable countries={countries} />
+    </Layout>
   );
 }
+
+export const getStaticProps = async () => {
+  const countries = await Axios.get("https://restcountries.eu/rest/v2/all");
+  return {
+    props: {
+      countries: countries.data ?? [],
+    },
+  };
+};
