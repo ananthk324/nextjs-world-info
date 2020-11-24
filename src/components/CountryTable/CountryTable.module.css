@@ -1,5 +1,6 @@
 .table {
   max-height: 65vh;
+  padding: 0px 4px;
   overflow-y: scroll;
 }
 
@@ -19,6 +20,7 @@
   padding: 20px;
   margin-top: 20px;
   border-radius: 4px;
+  background-color: var(--background-color);
 }
 
 .heading_population {
@@ -44,6 +46,9 @@
 .row_not_found {
   opacity: 0.5;
   justify-content: center;
+  font-style: italic;
+  background-color: var(--background-color);
+  box-shadow: none;
 }
 
 .row:hover {
@@ -53,9 +58,18 @@
 
 .name {
   flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.name img {
+  width: 72px;
+  margin-right: 1em;
 }
 
 .population {
   flex: 1;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
