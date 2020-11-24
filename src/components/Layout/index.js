@@ -3,7 +3,7 @@ import Router from "next/router";
 import styles from "./Layout.module.css";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Brightness6Rounded } from "@material-ui/icons";
+import { Brightness6Rounded, GitHub } from "@material-ui/icons";
 import NProgress from "nprogress";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -88,7 +88,9 @@ const Layout = ({ children, title = "World Info" }) => {
           href="http://github.com/ananthk324"
           target="_blank"
           rel="noopener noreferrer"
+          className={styles.github}
         >
+          <GitHub />
           ananthk324
         </a>
       </footer>

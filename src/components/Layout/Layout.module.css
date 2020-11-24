@@ -42,7 +42,9 @@
 }
 
 .footer {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1em;
   padding: 1em;
   opacity: 0.8;
@@ -58,4 +60,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.github {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.github svg {
+  height: 0.75em;
+  margin-right: 5px;
 }
