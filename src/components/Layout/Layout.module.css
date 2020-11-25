@@ -20,6 +20,7 @@
 }
 
 .main {
+  margin: 0 auto;
 }
 
 .main ::-webkit-scrollbar {
@@ -71,4 +72,14 @@
 .github svg {
   height: 0.75em;
   margin-right: 5px;
+}
+
+@media screen and (max-width: 420px) {
+  .footer {
+    flex-direction: column;
+  }
+
+  .container {
+    padding: 1em 1.5em;
+  }
 }
