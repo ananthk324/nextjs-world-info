@@ -21,7 +21,7 @@ const CountryTable = ({ countries }) => {
             <a>
               <div className={styles.row} key={country.name}>
                 <div className={styles.name}>
-                  <img src={country.flag} alt={country.name} />
+                  <img src={country.flag} alt={country.name} loading="lazy" />
                   <div>{country.name}</div>
                 </div>
                 <div className={styles.population}>{country.population}</div>

@@ -2,6 +2,7 @@ import Axios from "axios";
 import Layout from "../../components/Layout";
 import { useEffect, useState } from "react";
 import styles from "./Country.module.css";
+import Link from "next/link";
 
 const getCountry = async (id) => {
   const countryDetails = await Axios.get(
@@ -96,14 +97,16 @@ const Country = ({ country }) => {
                 </div>
 
                 <div className={styles.details_panel_borders_container}>
-                  {borderCountries.map(({ flag, name }) => (
-                    <div className={styles.details_panel_borders_country}>
-                      <img src={flag} alt={name}></img>
+                  {borderCountries.map(({ flag, name, alpha3Code }) => (
+                    <Link href={`/country/${alpha3Code}`}>
+                      <a className={styles.details_panel_borders_country}>
+                        <img src={flag} alt={name}></img>
 
-                      <div className={styles.details_panel_borders_name}>
-                        {name}
-                      </div>
-                    </div>
+                        <div className={styles.details_panel_borders_name}>
+                          {name}
+                        </div>
+                      </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -117,7 +120,20 @@ const Country = ({ country }) => {
 
 export default Country;
 
-export const getServerSideProps = async ({ params }) => {
+export const getStaticPaths = async () => {
+  const countries = await Axios.get("https://restcountries.eu/rest/v2/all");
+
+  const paths = countries.data.map((country) => ({
+    params: { id: country.alpha3Code },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async ({ params }) => {
   const country = await getCountry(params.id);
 
   return {
